@@ -1,6 +1,5 @@
 CREATE TABLE players (
     p_player_key decimal(3,0) not null,
-    p_player_season_key decimal(3,0) not null,
     p_player_firstname varchar(25) not null,
     p_player_lastname varchar(25) not null,
     p_player_age decimal(3,0) not null

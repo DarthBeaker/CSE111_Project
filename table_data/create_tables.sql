@@ -13,7 +13,8 @@ CREATE TABLE teams (
 CREATE TABLE played_for (
     pf_player_key decimal(3,0) not null,
     pf_team_key decimal(3,0) not null,
-    pf_season_key decimal(3,0) not null
+    pf_season_key decimal(3,0) not null,
+    pf_salary decimal(11,0) not null
 );
 CREATE TABLE seasons (
     se_season_key decimal(3,0) not null,

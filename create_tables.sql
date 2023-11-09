@@ -26,6 +26,7 @@ CREATE TABLE games(
     g_team_key_away decimal(3,0) not null,
     g_stadium_key decimal(3,0) not null,
     g_season_key decimal(3,0) not null,
+    g_date date not null,
     g_score varchar(10) not null
 );
 CREATE TABLE stadiums (

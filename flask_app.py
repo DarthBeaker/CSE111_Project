@@ -59,7 +59,7 @@ def execute_query_from_file(file_path, cursor):
 def Q_insert():
     return render_template('Q_insert.html')
 
-@app.route('/insert_into_players', methods=['GET'])
+@app.route('/insert_into_players', methods=['POST'])
 def insert_into_players():  
     playerkey = request.json["player_key"]
     player_firstname = request.json["player_firstname"]

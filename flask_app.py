@@ -34,3 +34,14 @@ def index():
     coaches = cursor.fetchall()
     close_conn(conn)
     return render_template("index.html",players=players,teams=teams,coaches=coaches)
+
+#route for Q1
+@app.route('/index_Q1.html')
+def index_Q1():
+
+    
+    return render_template('index_Q1.html')
+
+@app.route('/index_Q2.html')
+def index_Q1():
+    return render_template('index_Q2.html')

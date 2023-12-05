@@ -45,22 +45,20 @@
             </div>
         </nav>
     </header>
-    <div class="table-responsive" id="q2">
-        <table class="table table-bordered">
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            {%for column in q2%}
-                <tr>
-                    <td>{{column[0]}}</td>
-                    <td>{{column[1]}}</td>
-                    <td>{{column[2]}}</td>
-                    <td>{{column[3]}}</td>
-                </tr>
-            {%endfor%}
+    <div class="tab-content" id="table-tabs-content">
+        <div class="tab-pane fade show active" id="results" role="tabpanel" aria-labelledby="players-tab" tabindex="0">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>total_games</th>
+                        <th>Season</th>
+                    </tr>
+                    {%for column in results%}
+                        <tr>
+                            <td>{{column[0]}}</td>
+                            <td>{{column[1]}}</td>
+                        </tr>
+                    {%endfor%}
         </table>
     </div>
     

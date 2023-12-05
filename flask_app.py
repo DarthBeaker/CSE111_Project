@@ -50,19 +50,41 @@ def index_():
     return render_template("index.html",players=players,teams=teams,coaches=coaches)
 
 
+def execute_query_from_file(file_path, cursor):
+    with open(file_path, 'r') as file:
+        sql_query = file.read()
+        cursor.execute(sql_query)
+
+
 #route for Q1
 @app.route('/Q1.html')
 def index_Q1():
 
+    conn = get_conn(db)
+    cursor = conn.cursor()
+    sql_file_path = 'sql/Queries/query1.sql'
+    execute_query_from_file(sql_file_path, cursor)
 
-    return render_template('Q1.html')
+    #cursor.execute('SELECT * FROM played_for JOIN players ON pf_player_key = p_player_key JOIN teams ON pf_team_key = t_team_key JOIN seasons ON pf_season_key = se_season_key;')
+
+    results = cursor.fetchall()
+    close_conn(conn)
+
+    return render_template('Q1.html', results=results)
 
 #route for Q2
 @app.route('/Q2.html')
 def index_Q2():
 
+    conn = get_conn(db)
+    cursor = conn.cursor()
+    sql_file_path = 'sql/Queries/query2.sql'
+    execute_query_from_file(sql_file_path, cursor)
+    
+    results = cursor.fetchall()
+    close_conn(conn)
 
-    return render_template('Q2.html')
+    return render_template('Q2.html', results=results)
 
 
 #route for Q3

@@ -2,7 +2,7 @@
 14 coaches win rate
 */
 
-.headers ON
+
 
 
 SELECT coaches.c_coach_firstname as coach , round(count(game_win.winner_team_key),4)/(game_total.games_played) * 100 as winrate

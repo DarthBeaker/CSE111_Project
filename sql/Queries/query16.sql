@@ -1,7 +1,7 @@
 /*
 16 team win rate, overall seasons
 */
-.headers ON
+
 
 SELECT teams.t_team_name, round(game_win.cnt, 2)/game_total.games_played as winrate
 FROM(

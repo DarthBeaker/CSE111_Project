@@ -2,7 +2,7 @@
 12 which stadium played the most during season
 */
 
-.headers ON
+
 
 SELECT stadiums.s_name as stadium_name, seasons.se_season_year as season
 FROM stadiums, (

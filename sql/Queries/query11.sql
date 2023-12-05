@@ -1,7 +1,7 @@
 /*
 11 how many games per stadium per season
 */
-.headers ON
+
 
 SELECT stadiums.s_name as stadium_name, seasons.se_season_year as season, count(games.g_game_key) as cnt
 FROM games

@@ -140,64 +140,118 @@ def index_Q9():
 #route for Q10
 @app.route('/Q10.html')
 def index_Q10():
+    conn = get_conn(db)
+    cursor = conn.cursor()
+    sql_file_path = 'sql/Queries/query11.sql'
+    execute_query_from_file(sql_file_path, cursor)
+    
+    results = cursor.fetchall()
+    close_conn(conn)
 
-
-    return render_template('Q10.html')
+    return render_template('Q10.html', q10=results)
 
 #route for Q11
 @app.route('/Q11.html')
 def index_Q11():
+    conn = get_conn(db)
+    cursor = conn.cursor()
+    sql_file_path = 'sql/Queries/query12.sql'
+    execute_query_from_file(sql_file_path, cursor)
+    
+    results = cursor.fetchall()
+    close_conn(conn)
 
-
-    return render_template('Q11.html')
+    return render_template('Q11.html', q11=results)
 
 #route for Q12
 @app.route('/Q12.html')
 def index_Q12():
+    conn = get_conn(db)
+    cursor = conn.cursor()
+    sql_file_path = 'sql/Queries/query13.sql'
+    execute_query_from_file(sql_file_path, cursor)
+    
+    results = cursor.fetchall()
+    close_conn(conn)
 
-
-    return render_template('Q12.html')
+    return render_template('Q12.html', q12=results)
 
 #route for Q13
 @app.route('/Q13.html')
 def index_Q13():
+    conn = get_conn(db)
+    cursor = conn.cursor()
+    sql_file_path = 'sql/Queries/query14.sql'
+    execute_query_from_file(sql_file_path, cursor)
+    
+    results = cursor.fetchall()
+    close_conn(conn)
 
-
-    return render_template('Q13.html')
+    return render_template('Q13.html', q13=results)
 
 #route for Q14
 @app.route('/Q14.html')
 def index_Q14():
+    conn = get_conn(db)
+    cursor = conn.cursor()
+    sql_file_path = 'sql/Queries/query15.sql'
+    execute_query_from_file(sql_file_path, cursor)
+    
+    results = cursor.fetchall()
+    close_conn(conn)
 
-
-    return render_template('Q14.html')
+    return render_template('Q14.html', q14=results)
 
 #route for Q15
 @app.route('/Q15.html')
 def index_Q15():
+    conn = get_conn(db)
+    cursor = conn.cursor()
+    sql_file_path = 'sql/Queries/query16.sql'
+    execute_query_from_file(sql_file_path, cursor)
+    
+    results = cursor.fetchall()
+    close_conn(conn)
 
-
-    return render_template('Q15.html')
+    return render_template('Q15.html', q15=results)
 
 #route for Q16
 @app.route('/Q16.html')
 def index_Q16():
+    conn = get_conn(db)
+    cursor = conn.cursor()
+    sql_file_path = 'sql/Queries/query18.sql'
+    execute_query_from_file(sql_file_path, cursor)
+    
+    results = cursor.fetchall()
+    close_conn(conn)
 
-
-    return render_template('Q16.html')
+    return render_template('Q16.html', q16=results)
 
 #route for Q3
 @app.route('/Q17.html')
 def index_Q17():
+    conn = get_conn(db)
+    cursor = conn.cursor()
+    sql_file_path = 'sql/Queries/query19.sql'
+    execute_query_from_file(sql_file_path, cursor)
+    
+    results = cursor.fetchall()
+    close_conn(conn)
 
-
-    return render_template('Q17.html')
+    return render_template('Q17.html', q17=results)
 
 #route for Q18
 @app.route('/Q18.html')
 def index_Q18():
+    conn = get_conn(db)
+    cursor = conn.cursor()
+    sql_file_path = 'sql/Queries/query20.sql'
+    execute_query_from_file(sql_file_path, cursor)
+    
+    results = cursor.fetchall()
+    close_conn(conn)
 
-
-    return render_template('Q18.html')
+    return render_template('Q18.html', q18=results)
 
 

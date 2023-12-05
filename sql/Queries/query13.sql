@@ -2,7 +2,7 @@
 13 last game per season, team that won
 */
 
-.headers ON
+
 
 SELECT finalgame.season as season, teams.t_team_name as final_match_winner
 FROM teams, (

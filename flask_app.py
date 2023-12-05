@@ -59,6 +59,40 @@ def execute_query_from_file(file_path, cursor):
 def Q_insert():
     return render_template('Q_insert.html')
 
+@app.route('/delete_from_players', methods=['POST'])
+def delete_from_players(): 
+    sql1 = '''
+        DELETE FROM players 
+        WHERE p_player_key = ? 
+        AND p_player_firstname = ? 
+        AND p_player_lastname = ?
+        AND p_player_age =  ?
+    '''
+    sql2 = '''
+        DELETE FROM played_for 
+        WHERE pf_player_key = ?
+        AND pf_team_key = (select t_team_key from teams where t_team_name = ?)
+        AND pf_season_key = (select se_season_key from seasons where se_season_year = ?)
+        AND pf_salary = ?
+    '''
+    playerkey = request.json["player_key"]
+    player_firstname = request.json["player_firstname"]
+    player_lastname = request.json["player_lastname"]
+    player_age = request.json["player_age"]
+    team_name = request.json["team_name"]
+    salary = request.json["salary"] 
+    season_year = request.json["season_year"]
+    try:
+        conn = get_conn(db)
+        cursor = conn.cursor()
+        cursor.execute(sql1, (playerkey, player_firstname, player_lastname, player_age))
+        conn.commit()
+        cursor.execute(sql2, (playerkey, team_name, season_year, salary))
+        conn.commit() # not sure if I need this commit
+        return jsonify("success: Data Inserted")
+    except Error as e:
+        return jsonify(f"error: {e}")
+
 @app.route('/insert_into_players', methods=['POST'])
 def insert_into_players(): 
     sql = '''

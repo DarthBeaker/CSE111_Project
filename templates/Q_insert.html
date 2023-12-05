@@ -15,6 +15,16 @@
 
                 <!--Navbar-->
                 <ul class="navbar-nav me-2">
+                    <li class="nav-item">
+                        <ul class="nav nav-tabs" id="tables-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="insert-players-tab" data-bs-toggle="tab" data-bs-target="#insert-players" type="button" role="tab" aria-selected="true"> Insert Player</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="delete-players-tab" data-bs-toggle="tab" data-bs-target="#delete-players" type="button" role="tab">Delete Player</button>
+                            </li>
+                        </ul> 
+                    </li>
                     <li class="nav-item dropstart">
                         <button class="btn dropdown-toggle" data-bs-toggle="dropdown">
                             Query Selector
@@ -39,7 +49,7 @@
                             <li><a class="dropdown-item" href="Q16.html">16. Which player played the longest</a></li>
                             <li><a class="dropdown-item" href="Q17.html">17. Print all games per stadium</a></li>
                             <li><a class="dropdown-item" href="Q18.html">18. Top paid players</a></li>
-                            <li><a class="dropdown-item" href="Q_insert.html">19. Insert Into Database</a></li>
+                            <li><a class="dropdown-item" href="Q_insert.html">19. Modify Database</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -48,34 +58,67 @@
     </header>
     <div class="container-fluid">
         <div class="col-sm-8 offset-sm-2">
-            <h2>Insert Player Into Database</h2>
-            <div aria-label="Insert Player Query Interface" role="form">
+            <div class="tab-content" id="table-tabs-content">
+                <div class="tab-pane fade show active" id="insert-players" role="tabpanel" aria-labelledby="insert-players-tab" tabindex="0">
+                    <h2>Insert Player Into Database</h2>
+                    <div aria-label="Insert Player Query Interface" role="form">
 
-                <label for="p-player-key" class="form-label">p_player_key</label>
-                <input type="text" class="form-control" name="p-player-key" id="p-player-key">
+                        <label for="p-player-key-insert" class="form-label">p_player_key</label>
+                        <input type="text" class="form-control" name="p-player-key-insert" id="p-player-key-insert">
 
-                <label for="p-player-firstname" class="form-label">p_player_firstname</label>
-                <input type="text" class="form-control" name="p-player-firstname" id="p-player-firstname">
+                        <label for="p-player-firstname-insert" class="form-label">p_player_firstname</label>
+                        <input type="text" class="form-control" name="p-player-firstname-insert" id="p-player-firstname-insert">
 
-                <label for="p-player-lastname" class="form-label">p_player_lastname</label>
-                <input type="text" class="form-control" name="p-player-lastname" id="p-player-lastname">
+                        <label for="p-player-lastname-insert" class="form-label">p_player_lastname</label>
+                        <input type="text" class="form-control" name="p-player-lastname-insert" id="p-player-lastname-insert">
 
-                <label for="p-player-age" class="form-label">p_player_age</label>
-                <input type="text" class="form-control" id="p-player-age" name="p-player-age">
+                        <label for="p-player-age-insert" class="form-label">p_player_age</label>
+                        <input type="text" class="form-control" id="p-player-age-insert" name="p-player-age-insert">
 
-                <label for="t-team-name" class="form-label">t_team_name</label>
-                <input type="text" class="form-control" id="t-team-name" name="t-team-name">
+                        <label for="t-team-name-insert" class="form-label">t_team_name</label>
+                        <input type="text" class="form-control" id="t-team-name-insert" name="t-team-name-insert">
 
-                <label for="pf-salary" class="form-label">pf_salary</label>
-                <input type="text" class="form-control" id="pf-salary" name="pf-salary">
+                        <label for="pf-salary-insert" class="form-label">pf_salary</label>
+                        <input type="text" class="form-control" id="pf-salary-insert" name="pf-salary-insert">
 
-                <label for="se-season-year" class="form-label">se_season_year</label>
-                <input type="text" class="form-control" id="se-season-year" name="se-season-year">
+                        <label for="se-season-year-insert" class="form-label">se_season_year</label>
+                        <input type="text" class="form-control" id="se-season-year-insert" name="se-season-year-insert">
 
-                <button class="btn btn-primary mt-3" id="insert-into-table" onclick="insert_into_players()" value="Insert Into Players">
-                    Insert Into Player
-                </button>
-                
+                        <button class="btn btn-primary mt-3" id="insert-into-table" onclick="insert_into_players()" value="Insert Into Players">
+                            Insert Player
+                        </button>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="delete-players" role="tabpanel" aria-labelledby="insert-players-tab" tabindex="0">
+                    <h2>Delete Player From Database</h2>
+                    <div aria-label="Insert Player Query Interface" role="form">
+
+                        <label for="p-player-key-delete" class="form-label">p_player_key</label>
+                        <input type="text" class="form-control" name="p-player-key-delete" id="p-player-key-delete">
+
+                        <label for="p-player-firstname-delete" class="form-label">p_player_firstname</label>
+                        <input type="text" class="form-control" name="p-player-firstname-delete" id="p-player-firstname-delete">
+
+                        <label for="p-player-lastname-delete" class="form-label">p_player_lastname</label>
+                        <input type="text" class="form-control" name="p-player-lastname-delete" id="p-player-lastname-delete">
+
+                        <label for="p-player-age-delete" class="form-label">p_player_age</label>
+                        <input type="text" class="form-control" id="p-player-age-delete" name="p-player-age-delete">
+
+                        <label for="t-team-name-delete" class="form-label">t_team_name</label>
+                        <input type="text" class="form-control" id="t-team-name-delete" name="t-team-name-delete">
+
+                        <label for="pf-salary-delete" class="form-label">pf_salary</label>
+                        <input type="text" class="form-control" id="pf-salary-delete" name="pf-salary-delete">
+
+                        <label for="se-season-year-delete" class="form-label">se_season_year</label>
+                        <input type="text" class="form-control" id="se-season-year-delete" name="se-season-year-delete">
+
+                        <button class="btn btn-primary mt-3" id="insert-into-table" onclick="delete_from_players()" value="Delete Players">
+                            Delete Player
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>  
     </div>

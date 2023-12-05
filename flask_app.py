@@ -55,6 +55,24 @@ def execute_query_from_file(file_path, cursor):
         sql_query = file.read()
         cursor.execute(sql_query)
 
+@app.route('/Q_insert.html')
+def Q_insert():
+    return render_template('Q_insert.html')
+
+@app.route('/insert_into_players', methods=['GET'])
+def insert_into_players():  
+    playerkey = request.json["player_key"]
+    player_firstname = request.json["player_firstname"]
+    player_lastname = request.json["player_lastname"]
+    player_age = request.json["player_age"]
+    try:
+        conn = get_conn(db)
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO players VALUES (?, ?, ?, ?)", (playerkey, player_firstname, player_lastname, player_age))
+        conn.commit()
+        return jsonify("success: Data Inserted")
+    except Error as e:
+        return jsonify(f"error: {e}")
 
 #route for Q1
 @app.route('/Q1.html')

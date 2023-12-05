@@ -39,26 +39,25 @@
                             <li><a class="dropdown-item" href="Q16.html">16. Which player played the longest</a></li>
                             <li><a class="dropdown-item" href="Q17.html">17. Print all games per stadium</a></li>
                             <li><a class="dropdown-item" href="Q18.html">18. Top paid players</a></li>
+                            <li><a class="dropdown-item" href="Q_insert.html">19. Insert Into Database</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
-    <div class="tab-content" id="table-tabs-content">
-        <div class="tab-pane fade show active" id="results" role="tabpanel" aria-labelledby="players-tab" tabindex="0">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <tr>
-                        <th>total_games</th>
-                        <th>Season</th>
-                    </tr>
-                    {%for column in results%}
-                        <tr>
-                            <td>{{column[0]}}</td>
-                            <td>{{column[1]}}</td>
-                        </tr>
-                    {%endfor%}
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <th>total_games</th>
+                <th>Season</th>
+            </tr>
+            {%for column in results%}
+                <tr>
+                    <td>{{column[0]}}</td>
+                    <td>{{column[1]}}</td>
+                </tr>
+            {%endfor%}
         </table>
     </div>
     

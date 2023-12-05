@@ -36,12 +36,12 @@ def index():
     return render_template("index.html",players=players,teams=teams,coaches=coaches)
 
 #route for Q1
-@app.route('/index_Q1.html')
+@app.route('/Q1.html')
 def index_Q1():
 
-    
-    return render_template('index_Q1.html')
 
-@app.route('/index_Q2.html')
+    return render_template('Q1.html')
+
+@app.route('/Q2.html')
 def index_Q1():
-    return render_template('index_Q2.html')
+    return render_template('Q2.html')

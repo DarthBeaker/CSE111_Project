@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flask and SQLite </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">   
+        <link href="{{url_for('static', filename='assets/css/custom.css')}}" rel="stylesheet">
+    </head>
+    
+    <body>
+    <header>
+        <nav class="navbar">
+            <div class="container-fluid">
+                <!--Logo-->
+                <span class="navbar-brand ms-2">Baseball Stats R Us</span>
+
+                <!--Navbar-->
+                <ul class="navbar-nav me-2">
+                    <li class="nav-item dropstart">
+                        <button class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                            Query Selector
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">0. Display unfiltered tables</a></li>
+                            <li><a class="dropdown-item" href="#">1. Join played for with player, team, and season</a></li>
+                            <li><a class="dropdown-item" href="#">2. How many games per season</a></li>
+                            <li><a class="dropdown-item" href="#">3. Per player, how many seasons played</a></li>
+                            <li><a class="dropdown-item" href="#">4. Per team, look up their players, coaches, mascots</a></li>
+                            <li><a class="dropdown-item" href="#">5. All games in a season</a></li>
+                            <li><a class="dropdown-item" href="#">6. All games coaches coached for</a></li>
+                            <li><a class="dropdown-item" href="#">7. Total # of players in a season</a></li>
+                            <li><a class="dropdown-item" href="#">8. Win count of teams</a></li>
+                            <li><a class="dropdown-item" href="#">9. AVG scores for teams</a></li>
+                            <li><a class="dropdown-item" href="#">10. How many games per stadium per season</a></li>
+                            <li><a class="dropdown-item" href="#">11. Which stadium played the most during season</a></li>
+                            <li><a class="dropdown-item" href="#">12. Last game per season, team that won</a></li>
+                            <li><a class="dropdown-item" href="#">13. Coaches win rate</a></li>
+                            <li><a class="dropdown-item" href="#">14. Player win rate overall seasons</a></li>
+                            <li><a class="dropdown-item" href="#">15. Team win rate, overall seasons</a></li>
+                            <li><a class="dropdown-item" href="#">16. Which player played the longest</a></li>
+                            <li><a class="dropdown-item" href="#">17. Print all games per stadium</a></li>
+                            <li><a class="dropdown-item" href="#">18. Top paid players</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="table-responsive" id="q13">
+        <table class="table table-bordered">
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            {%for column in q13%}
+                <tr>
+                    <td>{{column[0]}}</td>
+                    <td>{{column[1]}}</td>
+                    <td>{{column[2]}}</td>
+                    <td>{{column[3]}}</td>
+                </tr>
+            {%endfor%}
+        </table>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </script>
+    </body>
+</html>

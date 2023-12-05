@@ -45,20 +45,16 @@
             </div>
         </nav>
     </header>
-    <div class="table-responsive" id="q8">
+    <div class="table-responsive" id="results">
         <table class="table table-bordered">
             <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>Team</th>
+                <th>Total_wins</th>
             </tr>
-            {%for column in q8%}
+            {%for column in results%}
                 <tr>
                     <td>{{column[0]}}</td>
                     <td>{{column[1]}}</td>
-                    <td>{{column[2]}}</td>
-                    <td>{{column[3]}}</td>
                 </tr>
             {%endfor%}
         </table>

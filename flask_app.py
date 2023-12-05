@@ -60,16 +60,25 @@ def Q_insert():
     return render_template('Q_insert.html')
 
 @app.route('/insert_into_players', methods=['POST'])
-def insert_into_players():  
+def insert_into_players(): 
+    sql = '''
+        Insert into played_for 
+        Values(?, (select t_team_key from teams where t_team_name = ?),(select se_season_key from seasons where se_season_year = ?), ?)
+    '''
     playerkey = request.json["player_key"]
     player_firstname = request.json["player_firstname"]
     player_lastname = request.json["player_lastname"]
     player_age = request.json["player_age"]
+    team_name = request.json["team_name"]
+    salary = request.json["salary"] 
+    season_year = request.json["season_year"]
     try:
         conn = get_conn(db)
         cursor = conn.cursor()
         cursor.execute("INSERT INTO players VALUES (?, ?, ?, ?)", (playerkey, player_firstname, player_lastname, player_age))
         conn.commit()
+        cursor.execute(sql, (playerkey, team_name, season_year, salary))
+        conn.commit() # not sure if I need this commit
         return jsonify("success: Data Inserted")
     except Error as e:
         return jsonify(f"error: {e}")

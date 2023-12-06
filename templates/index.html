@@ -26,6 +26,19 @@
                             <li class="nav-item" role="presentation">
                               <button class="nav-link" id="teams-tab" data-bs-toggle="tab" data-bs-target="#teams" type="button" role="tab">Teams</button>
                             </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="games-tab" data-bs-toggle="tab" data-bs-target="#games" type="button" role="tab">Games</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="stadiums-tab" data-bs-toggle="tab" data-bs-target="#stadiums" type="button" role="tab">Stadiums</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="mascots-tab" data-bs-toggle="tab" data-bs-target="#mascots" type="button" role="tab">Mascots</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="seasons-tab" data-bs-toggle="tab" data-bs-target="#seasons" type="button" role="tab">Seasons</button>
+                            </li>
+                            
                         </ul> 
                     </li>
                     <li class="nav-item dropstart">
@@ -33,7 +46,7 @@
                             Query Selector
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="index.html">0. Home Page</a></li>
+                            <li><a class="dropdown-item" href="/">0. Home Page</a></li>
                             <li><a class="dropdown-item" href="Q1.html">1. Join played for with player, team, and season</a></li>
                             <li><a class="dropdown-item" href="Q2.html">2. How many games per season</a></li>
                             <li><a class="dropdown-item" href="Q3.html">3. Per player, how many seasons played</a></li>
@@ -115,6 +128,80 @@
                             <td>{{column[1]}}</td>
                             <td>{{column[2]}}</td>
                             <td>{{column[3]}}</td>
+                        </tr>
+                    {%endfor%}
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="games" role="tabpanel" aria-labelledby="games-tab" tabindex="0">
+            <div class="table-responsive" >
+                <table class="table table-bordered">
+                    <tr>
+                        <th>g_game_key</th>
+                        <th>g_game_team_key_home</th>
+                        <th>g_game_team_key_home</th>
+                        <th>g_stadium_key</th>
+                        <th>g_season_key</th>
+                        <th>g_date</th>
+                        <th>g_score</th>
+                    </tr>
+                    {%for column in games%}
+                        <tr>
+                            <td>{{column[0]}}</td>
+                            <td>{{column[1]}}</td>
+                            <td>{{column[2]}}</td>
+                            <td>{{column[3]}}</td>
+                            <td>{{column[4]}}</td>
+                            <td>{{column[5]}}</td>
+                            <td>{{column[6]}}</td>
+                        </tr>
+                    {%endfor%}
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="stadiums" role="tabpanel" aria-labelledby="stadiums-tab" tabindex="0">
+            <div class="table-responsive" >
+                <table class="table table-bordered">
+                    <tr>
+                        <th>s_stadium_key</th>
+                        <th>s_name</th>
+                    </tr>
+                    {%for column in stadiums%}
+                        <tr>
+                            <td>{{column[0]}}</td>
+                            <td>{{column[1]}}</td>
+                        </tr>
+                    {%endfor%}
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="mascots" role="tabpanel" aria-labelledby="mascots-tab" tabindex="0">
+            <div class="table-responsive" >
+                <table class="table table-bordered">
+                    <tr>
+                        <th>m_mascot_key</th>
+                        <th>m_name</th>
+                    </tr>
+                    {%for column in mascots%}
+                        <tr>
+                            <td>{{column[0]}}</td>
+                            <td>{{column[1]}}</td>
+                        </tr>
+                    {%endfor%}
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="seasons" role="tabpanel" aria-labelledby="mascots-tab" tabindex="0">
+            <div class="table-responsive" >
+                <table class="table table-bordered">
+                    <tr>
+                        <th>se_seasons_key</th>
+                        <th>se_season_year</th>
+                    </tr>
+                    {%for column in seasons%}
+                        <tr>
+                            <td>{{column[0]}}</td>
+                            <td>{{column[1]}}</td>
                         </tr>
                     {%endfor%}
                 </table>

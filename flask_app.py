@@ -32,22 +32,19 @@ def index():
     teams = cursor.fetchall()
     cursor.execute('SELECT * FROM coaches')
     coaches = cursor.fetchall()
+    cursor.execute('SELECT * FROM games')
+    games = cursor.fetchall()
+    cursor.execute('SELECT * FROM stadiums')
+    stadiums = cursor.fetchall()
+    cursor.execute('SELECT * FROM mascots')
+    mascots = cursor.fetchall()
+    cursor.execute('SELECT * FROM seasons')
+    seasons = cursor.fetchall()
     close_conn(conn)
-    return render_template("index.html",players=players,teams=teams,coaches=coaches)
-
-#route for hoempage
-@app.route('/index.html')
-def index_():
-    conn = get_conn(db)
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM players')
-    players = cursor.fetchall()
-    cursor.execute('SELECT * FROM teams')
-    teams = cursor.fetchall()
-    cursor.execute('SELECT * FROM coaches')
-    coaches = cursor.fetchall()
-    close_conn(conn)
-    return render_template("index.html",players=players,teams=teams,coaches=coaches)
+    return render_template("index.html",
+        players=players,teams=teams,coaches=coaches,
+        games=games,stadiums=stadiums,
+        mascots=mascots,seasons=seasons)
 
 
 def execute_query_from_file(file_path, cursor):
